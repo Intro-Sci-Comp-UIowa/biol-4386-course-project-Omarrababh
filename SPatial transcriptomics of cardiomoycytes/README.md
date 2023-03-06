@@ -17,14 +17,15 @@ Isolated RNA will be further used for cDNA library preparation using low input T
 4. ##### RNA-anlaysis
  RNA data will be mapped to reference transcriptome using HISAT2. Then HTSEQ will be used to quantify the gene expression. Differential gene expression analysis will be used using package DESeq2 and edgeR. After that gene ontology analysis will be done using clusterprofiler package. Data visualization will done using volcano plot.
 For my experiment; we have the differential expression of the genes downloaded on excel sheet, which will be my main input for further analysis. 
-# Load required packages
+
+Load required packages
 library(ggplot2)
 results['volcano_plot'] = {} 
-# Loop through signatures 
+Loop through signatures 
 for label, signature in signatures.items(): 
-# Run analysis 
+Run analysis 
 results ['volcano_plot'][label] = analyze(signature=signature, tool='volcano_plot', signature_label=label, pvalue_threshold=0.05, logfc_threshold=1.5, plot_type='interactive') 
-# Display results
+Display results
  plot(results['volcano_plot'][label])
  
 
