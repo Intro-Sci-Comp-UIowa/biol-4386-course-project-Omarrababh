@@ -5,4 +5,4 @@ It contain gene expression for each samples,its power, significant and its value
 
 The first set of groups (from cell D:O merge all control together and the target region of intercalated discs together. the other set contain data for each sample.
 
-
+These data are result of RNA anlaysis of sequenced RNA comparing between intercalted discs and control.
