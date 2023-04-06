@@ -17,26 +17,25 @@ Isolated RNA will be further used for cDNA library preparation using low input T
 
 4. ##### RNA-anlaysis
  RNA data will be mapped to reference transcriptome using HISAT2. Then HTSEQ will be used to quantify the gene expression. Differential gene expression analysis will be used using package DESeq2 and edgeR. After that gene ontology analysis will be done using clusterprofiler package. Data visualization will done using volcano plot.
-For my experiment; we have the differential expression of the genes downloaded on excel sheet, which will be my main input for further analysis. 
+For my experiment; we have the differential expression of the genes downloaded on excel sheet, which will be my main input for further analysis.
+The data source for volcano plot mentioned in the data branch in the main but not in " SPatial transcriptomics of cardiomyocytes file"; 
+THE CODE for generating volcano plot and problems I face is done in the analysis branch in the main. 
 
-Load required packages
-library(ggplot2)
-results['volcano_plot'] = {} 
-Loop through signatures 
-for label, signature in signatures.items(): 
-Run analysis 
-results ['volcano_plot'][label] = analyze(signature=signature, tool='volcano_plot', signature_label=label, pvalue_threshold=0.05, logfc_threshold=1.5, plot_type='interactive') 
-Display results
- plot(results['volcano_plot'][label])
  
  Figures:
  I will re-produce these figures below; I will also make volacano plot compare the female and male of samples.
  This figure below shows a volcano plot of differential gene expression between control and intercalated discs samples. Red represents upregulated genes in the samples of interest where blue represent downregulated genes. Black means no difference in gene expression. Each dot represents gene with it FDR. 
  ![newplot](https://user-images.githubusercontent.com/125291868/223286827-6e0e70a1-b9f1-4ba5-97f0-bcd66744d89f.png) 
+ I tried the first figures; even it seems the way the code was run is different from that of my senior even I didn't but the shape and pattern of volcano plot is the same; I probably need to check th evalue of foldchange.
  
- This figure represent gene ontology biological process for upregulated and downregulated genes in intercalated discs regions
+
+ This figure represent gene ontology biological process for upregulated and downregulated genes in intercalated discs regions. This second figure, i didn't reproduce this time but I will try to make it.
  
  ![newplot(1)](https://user-images.githubusercontent.com/125291868/223287376-2c739e31-4efb-40a2-b7ac-acdfa092755b.png)
+ 
+ Results:
+ The figure I reporduce look like this below
+ 
 
 
  
