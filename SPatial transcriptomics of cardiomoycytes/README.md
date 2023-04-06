@@ -36,6 +36,13 @@ THE CODE for generating volcano plot and problems I face is done in the analysis
  Results:
  The figure I reporduce look like this below
  
+ ![alt text](https://github.com/Intro-Sci-Comp-UIowa/biol-4386-course-project-Omarrababh/blob/main/analysis/c81b6818-674b-4525-a1af-b0f84bd910c6.png)
+ 
+ and this with gene names 
+    ![alt text](https://github.com/Intro-Sci-Comp-UIowa/biol-4386-course-project-Omarrababh/blob/main/analysis/c81b6818-674b-4525-a1af-b0f84bd910c6.png)
+    
+ 
+ 
 
 
  
