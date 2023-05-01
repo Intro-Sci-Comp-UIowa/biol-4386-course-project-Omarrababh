@@ -1,0 +1,41 @@
+---
+title: "Enriched GO"
+author: "OMAR"
+date: "2023-05-01"
+output: pdf_document
+---
+## This code for GO enrished genes in samples compared to control; the excel sheet for this is uploaded on github called "genego", make sure you have the reuired backages installed.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(clusterProfiler)
+library(org.Mm.eg.db)
+library(ggplot2)
+library(gprofiler2)
+library(gProfileR)
+library(tidyverse)
+geneontology <- read.csv("genego.csv")
+
+
+```
+
+## R Markdown
+
+
+```{r GO}
+up_genes <- filter(geneontology, logFC > 0)
+down_genes <- filter(geneontology, logFC < 0)
+up_enrich <- enrichGO(up_genes$gene_symbol , OrgDb = org.Mm.eg.db, keyType = "SYMBOL", ont = "BP",  pAdjustMethod = "BH", pvalueCutoff = 0.05)
+down_enrich <- enrichGO(down_genes$gene_symbol , OrgDb = org.Mm.eg.db, keyType = "SYMBOL", ont = "BP", pAdjustMethod = "BH", pvalueCutoff = 0.05)
+up_terms <- rev(up_enrich@result$Description)
+down_terms <- rev(down_enrich@result$Description)
+up_pvals <- rev(up_enrich@result$pvalue)
+down_pvals <- rev(down_enrich@result$pvalue)
+
+par(mar = c(4, 10, 2, 2) + 0.1)
+barplot(-log10(up_pvals), horiz = TRUE, names.arg = up_terms, col = "blue",  xlim = c(0, max(-log10(c(up_pvals, down_pvals)))), xlab = "-log10(P-value)", ylab = "GO Terms (Up-regulated)", las = 1, cex.names = 0.7, main = "Enriched GO Terms")
+barplot(-log10(down_pvals), horiz = TRUE, names.arg = down_terms, col = "red",
+ylab = "GO Terms (Down-regulated)", las = 1, cex.names = 0.7)
+
+```
+
+
